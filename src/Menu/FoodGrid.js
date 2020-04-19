@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Title } from "../Styles/title";
+import styled from 'styled-components';
+import { Title } from '../Styles/title';
 
 export const FoodGrid = styled.div`
   display: grid;
@@ -35,5 +35,3 @@ export const Food = styled.div`
   box-shadow: 0px 5px 10px 0px grey;
  }
 `;
-
-//  © created by react.school
