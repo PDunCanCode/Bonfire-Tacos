@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export function useToppings(defaultTopping) {
   const [toppings, setToppings] = useState(
@@ -13,27 +13,27 @@ export function useToppings(defaultTopping) {
 
   return {
     checkTopping,
-    toppings
+    toppings,
   };
 }
 
 const toppingsList = [
-  "Extra Cheese",
-  "Pepperoni",
-  "Sausage",
-  "Onions",
-  "Peppers",
-  "Pineapple",
-  "Ham",
-  "Spinach",
-  "Artichokes",
-  "Mushrooms",
-  "Anchovies"
+  'Extra Cheese',
+  'Lettuce',
+  'Tomatoes',
+  'Onions',
+  'Peppers',
+  'Pineapple',
+  'Cilantro',
+  'Spinach',
+  'Serranos',
+  'Mushrooms',
+  'Habaneros',
 ];
 
 function getDefaultToppings() {
-  return toppingsList.map(topping => ({
+  return toppingsList.map((topping) => ({
     name: topping,
-    checked: false
+    checked: false,
   }));
 }

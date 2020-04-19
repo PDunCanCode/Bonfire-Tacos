@@ -34,9 +34,9 @@ export function Navbar() {
   return (
     <NavbarStyled>
       <Logo>
-        Rawr Pizza Co.{' '}
-        <span role='img' aria-label='pizza slice'>
-          🍕
+        Bonfire{' '}
+        <span role='img' aria-label='taco'>
+          🌮
         </span>
       </Logo>
       <MobileMenuIcon>

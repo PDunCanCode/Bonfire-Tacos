@@ -1,15 +1,15 @@
-import React from "react";
-import styled from "styled-components";
-import { FoodLabel } from "../Menu/FoodGrid";
-import { pizzaRed } from "../Styles/colors";
-import { Title } from "../Styles/title";
-import { formatPrice } from "../Data/FoodData";
-import { QuantityInput } from "./QuantityInput";
-import { useQuantity } from "../Hooks/useQuantity";
-import { Toppings } from "./Toppings";
-import { useToppings } from "../Hooks/useToppings";
-import { useChoice } from "../Hooks/useChoice";
-import { Choices } from "./Choices";
+import React from 'react';
+import styled from 'styled-components';
+import { FoodLabel } from '../Menu/FoodGrid';
+import { pizzaRed } from '../Styles/colors';
+import { Title } from '../Styles/title';
+import { formatPrice } from '../Data/FoodData';
+import { QuantityInput } from './QuantityInput';
+import { useQuantity } from '../Hooks/useQuantity';
+import { Toppings } from './Toppings';
+import { useToppings } from '../Hooks/useToppings';
+import { useChoice } from '../Hooks/useChoice';
+import { Choices } from './Choices';
 
 const Dialog = styled.div`
   width: 500px;
@@ -86,12 +86,12 @@ export function getPrice(order) {
   return (
     order.quantity *
     (order.price +
-      order.toppings.filter(t => t.checked).length * pricePerTopping)
+      order.toppings.filter((t) => t.checked).length * pricePerTopping)
   );
 }
 
 function hasToppings(food) {
-  return food.section === "Pizza";
+  return food.section === 'Tacos';
 }
 
 function FoodDialogContainer({ openFood, setOpenFood, setOrders, orders }) {
@@ -108,7 +108,7 @@ function FoodDialogContainer({ openFood, setOpenFood, setOrders, orders }) {
     ...openFood,
     quantity: quantity.value,
     toppings: toppings.toppings,
-    choice: choiceRadio.value
+    choice: choiceRadio.value,
   };
 
   function editOrder() {
