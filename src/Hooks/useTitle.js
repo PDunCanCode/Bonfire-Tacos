@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 export function useTitle({ openFood, orders }) {
   useEffect(() => {
@@ -7,7 +7,7 @@ export function useTitle({ openFood, orders }) {
     } else {
       document.title =
         orders.length === 0
-          ? `What's for dinner?`
+          ? `Bonfire Grill`
           : `[${orders.length}] items in your order! `;
     }
   });

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   DialogContent,
   DialogFooter,
@@ -17,8 +17,14 @@ const OrderStyled = styled.div`
   height: calc(100% - 48px);
   z-index: 10;
   box-shadow: 4px 0px 5px 4px grey;
-  display: grid;
+  display: flex;
   flex-direction: column;
+  @media (max-width: 900px) {
+    width: 200px;
+  }
+  @media (max-width: 501px) {
+    display: none;
+  }
 `;
 
 const OrderContent = styled(DialogContent)`
@@ -47,11 +53,18 @@ const OrderItem = styled.div`
   display: grid;
   grid-template-columns: 20px 150px 20px 60px;
   justify-content: space-between;
+  @media (max-width: 900px) {
+    grid-template-columns: 0.5fr 2fr 1fr 0.5fr;
+  }
 `;
 
 const DetailItem = styled.div`
   color: gray;
   font-size: 10px;
+  padding-left: 37px;
+  @media (max-width: 900px) {
+    padding-left: 13px;
+  }
 `;
 
 export function Order({ orders, setOrders, setOpenFood }) {
