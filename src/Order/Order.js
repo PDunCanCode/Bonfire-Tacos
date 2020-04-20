@@ -66,6 +66,34 @@ const DetailItem = styled.div`
     padding-left: 13px;
   }
 `;
+const database = window.firebase.database();
+function sendOrder(orders, { email, displayName }) {
+  const newOrderRef = database.ref('orders').push();
+  const newOrders = orders.map((order) => {
+    return Object.keys(order).reduce((acc, orderKey) => {
+      if (!order[orderKey]) {
+        return acc;
+      }
+      if (orderKey === 'toppings') {
+        return {
+          ...acc,
+          [orderKey]: order[orderKey]
+            .filter(({ checked }) => checked)
+            .map(({ name }) => name),
+        };
+      }
+      return {
+        ...acc,
+        [orderKey]: order[orderKey],
+      };
+    }, {});
+  });
+  newOrderRef.set({
+    order: newOrders,
+    email,
+    displayName,
+  });
+}
 
 export function Order({ orders, setOrders, setOpenFood }) {
   const subtotal = orders.reduce((total, order) => {
@@ -137,7 +165,17 @@ export function Order({ orders, setOrders, setOpenFood }) {
         </OrderContent>
       )}
       <DialogFooter>
-        <ConfirmButton>Checkout</ConfirmButton>
+        <ConfirmButton
+          onClick={() => {
+            if (loggedIn) {
+              sebdOrder(orders, loggedIn);
+            } else {
+              login();
+            }
+          }}
+        >
+          Checkout
+        </ConfirmButton>
       </DialogFooter>
     </OrderStyled>
   );
