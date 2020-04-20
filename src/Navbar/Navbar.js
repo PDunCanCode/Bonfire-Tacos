@@ -27,7 +27,7 @@ export const LoginButton = styled.span`
   cursor: pointer;
   border-radius: 5px;
   padding: 5px;
-  background-color: #8e8f7f;
+  background-color: #ff8080;
   &:hover {
     opacity: 0.7;
   }
@@ -63,12 +63,17 @@ export function Navbar({ login, loggedIn, logout }) {
       </Logo>
       <HamburgerMenu />
       <UserStatus>
-        {loggedIn === 'loading' ? (
-          'Loading...'
-        ) : loggedIn ? (
-          `👋 Hi, ${loggedIn.displayName}!`
+        {loggedIn !== 'loading' ? (
+          <>
+            👤 {loggedIn ? 'Logged In.' : ''}
+            {loggedIn ? (
+              <LoginButton onClick={logout}>Log Out</LoginButton>
+            ) : (
+              <LoginButton onClick={login}>Log In / Sign Up</LoginButton>
+            )}
+          </>
         ) : (
-          <LoginButton onClick={login}>Log In / Sign Up</LoginButton>
+          'loading...'
         )}
       </UserStatus>
     </NavbarStyled>
