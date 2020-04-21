@@ -17,10 +17,9 @@ export function OrderDialog({
       <DialogShadow />
       <Dialog>
         <DialogContent>
-          <h2> Your order is on the way</h2>
+          <h2> Your order is being created</h2>
           <p>
-            You have been emailed confirmation of your order. Thanks for eating
-            Local with Bonfire!
+            Emailed confirmation sent. Thanks for eating Local with Bonfire!
           </p>
         </DialogContent>
         <DialogFooter>

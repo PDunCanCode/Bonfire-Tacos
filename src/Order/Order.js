@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import {
   DialogContent,
   DialogFooter,
@@ -95,7 +95,14 @@ function sendOrder(orders, { email, displayName }) {
   });
 }
 
-export function Order({ orders, setOrders, setOpenFood }) {
+export function Order({
+  orders,
+  setOrders,
+  setOpenFood,
+  login,
+  loggedIn,
+  setOpenOrderDialog,
+}) {
   const subtotal = orders.reduce((total, order) => {
     return total + getPrice(order);
   }, 0);
@@ -164,20 +171,22 @@ export function Order({ orders, setOrders, setOpenFood }) {
           </OrderContainer>
         </OrderContent>
       )}
-      <DialogFooter>
-        <ConfirmButton
-          onClick={() => {
-            if (loggedIn) {
-              sebdOrder(orders, loggedIn);
-            } else {
-              login();
-            }
-          }}
-        >
-          Checkout
-        </ConfirmButton>
-      </DialogFooter>
+      {orders.length > 0 && (
+        <DialogFooter>
+          <ConfirmButton
+            onClick={() => {
+              if (loggedIn) {
+                setOpenOrderDialog(true);
+                //sendOrder(orders, loggedIn);
+              } else {
+                login();
+              }
+            }}
+          >
+            Checkout
+          </ConfirmButton>
+        </DialogFooter>
+      )}
     </OrderStyled>
   );
 }
-export default Order;

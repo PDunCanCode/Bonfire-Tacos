@@ -9,7 +9,7 @@ import { useOpenFood } from './Hooks/useOpenFood';
 import { useOrders } from './Hooks/useOrders';
 import { useTitle } from './Hooks/useTitle';
 import { useOrderDialog } from './Hooks/useOrderDialog';
-import { OrderDialog } from './Order/OrderDialod';
+import { OrderDialog } from './Order/OrderDialog';
 import { useAuthentication } from './Hooks/useAuthentication';
 
 function App() {
